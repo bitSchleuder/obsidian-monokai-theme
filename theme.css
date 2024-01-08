@@ -27,6 +27,8 @@
   --text-highlight: var(--base-1);
   --text-selection: var(--blue);
   --text-on-accent: var(--base-1);
+  --code-normal: var(--white);
+  --button-text-normal: var(--gray-3);
   --h1-color: var(--green);
   --h2-color: var(--blue);
   --h3-color: var(--orange);
@@ -37,10 +39,12 @@
   --interactive-accent: var(--yellow);
   --interactive-accent-rgb: 97, 175, 239;
   --interactive-accent-hover: var(--white);
+  --button-interactive-normal: var(--yellow);
   --scrollbar-active-thumb-bg: rgba(40, 42, 58, 0.02);
   --scrollbar-bg: rgba(40, 42, 58, 0.05);
   --scrollbar-thumb-bg: rgba(40, 42, 58, 0.1);
-  --nav-item-color: var(--gray-3);
+  --nav-item-color: var(--gray-2);
+  --nav-folder-item-color: var(--yellow);
   --icon-color: var(--purple);
   --oz-fta-folder-pane-file-name-color: var(--yellow);
   --db-plugin-row-shadow: var(--base-2);
@@ -71,7 +75,7 @@
   --background-secondary-alt: var(--base-1);
   --background-accent: var(--aqua);
   --background-modifier-border: var(--gray-1);
-  --background-modifier-form-field: rgba(0, 0, 0, 0.3);
+  --background-modifier-form-field: var(--white);
   --background-modifier-form-field-highlighted: rgba(0, 0, 0, 0.22);
   --background-modifier-box-shadow: rgba(0, 0, 0, 0.3);
   --background-modifier-success: var(--green);
@@ -83,7 +87,7 @@
   --checkbox-marker-color: var(--green);
   --checklist-done-color: var(--green);
   --code-background: var(--gray-3);
-  --text-accent: var(--gray-3);
+  --text-accent: var(--base-1);
   --text-accent-hover: var(--gray-3);
   --text-normal: var(--gray-3);
   --text-muted: var(--gray-1);
@@ -94,6 +98,9 @@
   --text-highlight: var(--gray-3);
   --text-selection: var(--blue);
   --text-on-accent: var(--base-1);
+  --code-normal: var(--white);
+  --button-text-normal: var(--gray-3);
+  --link-color: var(--orange);
   --tag-color: var(--gray-3);
   --tab-text-color: var(--gray-2);
   --tab-text-color-active: var(--gray-3);
@@ -105,25 +112,28 @@
   --h3-color: var(--orange);
   --h4-color: var(--purple);
   --h5-color: var(--gray-2);
-  --interactive-normal: var(--aqua);
+  --interactive-normal: var(--white);
   --interactive-hover: var(--base-2);
   --interactive-accent: var(--gray-3);
   --interactive-accent-rgb: 97, 175, 239;
   --interactive-accent-hover: var(--white);
+  --button-interactive-normal: var(--white);
   --scrollbar-active-thumb-bg: rgba(40, 42, 58, 0.02);
   --scrollbar-bg: rgba(40, 42, 58, 0.05);
   --scrollbar-thumb-bg: rgba(40, 42, 58, 0.1);
   --nav-item-color: var(--gray-2);
+  --nav-folder-item-color: var(--gray-3);
   --nav-collapse-icon-color: var(--red);
   --icon-color: var(--gray-3);
   --search-clear-button-color: var(--gray-3);
   --oz-fta-file-pane-file-name-color: var(--gray-3);
   --oz-fta-header-background-color: var(--purple);
   --oz-fta-header-icon-colors: var(--gray-3);
-  --db-plugin-row-shadow: var(--aqua);
+  --db-plugin-row-shadow: var(--gray-4);
   --gray-1: #5C6370;
   --gray-2: #abb2bf;
   --gray-3: #2c292d;
+  --gray-4: #eeeae5;
   --red: #ef6f89;
   --orange: #f19d6d;
   --green: #b3d97e;
@@ -150,24 +160,24 @@ body {
 }
 
 .tooltip {
-  background-color: var(--blue);
-  color: var(--text-muted);
+  background-color: var(--text-normal);
+  color: var(--base-1);
 }
 
 .tooltip:not(.mod-right):not(.mod-left):not(.mod-top) .tooltip-arrow {
-  border-bottom-color: var(--blue) !important;
+  border-bottom-color: var(--text-normal) !important;
 }
 
 .mod-right .tooltip-arrow {
-  border-right-color: var(--blue) !important;
+  border-right-color: var(--text-normal) !important;
 }
 
 .mod-left .tooltip-arrow {
-  border-left-color: var(--blue) !important;
+  border-left-color: var(--text-normal) !important;
 }
 
 .mod-top .tooltip-arrow {
-  border-top-color: var(--blue) !important;
+  border-top-color: var(--text-normal) !important;
 }
 
 .dropdown {
@@ -237,7 +247,7 @@ a.tag, a.tag:hover {
 
 .nav-folder-title, .nav-file {
 	border: 1px solid transparent;
-	color: var(--text-accent);
+	color: var(--nav-folder-item-color);
 }
 
 .nav-file, .nav-folder {
@@ -546,6 +556,28 @@ pre.line-numbers>code {
 	font-size: 1.2em;
 	color: var(--purple);
 	font-weight: bolder;
+}
+
+button.mod-warning {
+	background-color: var(--background-modifier-error) !important;
+	color: var(--text-on-accent) !important;
+}
+
+button:not(.clickable-icon) {
+	background-color: var(--button-interactive-normal);
+}
+
+button.mod-cta {
+	background-color: var(--button-interactive-normal);
+	color: var(--button-text-normal);
+}
+
+button {
+	color: var(--button-text-normal);
+}
+
+.theme-dark :not(pre)>code[class*='language-'], .theme-dark pre[class*='language-'], .theme-light :not(pre)>code[class*='language-'], .theme-light pre[class*='language-'] {
+  background: var(--code-background);
 }
 
 /* db folder plugin */
