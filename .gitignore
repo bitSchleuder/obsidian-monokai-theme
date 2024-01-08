@@ -1,0 +1,18 @@
+# vscode
+.vscode 
+
+# Intellij
+*.iml
+.idea
+
+# Nova
+.nova
+
+# npm
+node_modules
+
+# Exclude sourcemaps
+*.map
+
+# Exclude macOS Finder (System Explorer) View States
+.DS_Store
