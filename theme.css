@@ -101,6 +101,7 @@
   --code-normal: var(--white);
   --button-text-normal: var(--gray-3);
   --link-color: var(--orange);
+  --link-external-color: var(--gray-3);
   --tag-color: var(--gray-3);
   --tab-text-color: var(--gray-2);
   --tab-text-color-active: var(--gray-3);
